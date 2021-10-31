@@ -1,10 +1,10 @@
 import React from "react";
+import Banner from "../Banner/Banner";
 
 const Home = () => {
   return (
     <div>
-      <h1>Welcome to Horizon Delivery Network</h1>
-      <h2>Your Trusted Partner for Delivery your Parcel</h2>
+      <Banner />
     </div>
   );
 };

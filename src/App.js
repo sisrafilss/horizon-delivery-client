@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home/Home/Home";
 import AuthProvider from "./context/AuthProvider";
 import Header from "./pages/Shared/Header/Header";
+import AllService from "./pages/Services/AllService/AllService";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
             </Route>
             <Route path="/login">
               <Login />
+            </Route>
+            <Route path="/services">
+              <AllService />
             </Route>
           </Switch>
         </Router>
