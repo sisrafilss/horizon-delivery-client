@@ -1,11 +1,25 @@
 import React from "react";
-import icon1 from '../../../images/icon/1.png';
-import icon2 from '../../../images/icon/2.png';
-import icon3 from '../../../images/icon/3.png';
+import "./GreetingUser.css";
+import icon1 from "../../../images/icon/1.png";
+import icon2 from "../../../images/icon/2.png";
+import icon3 from "../../../images/icon/3.png";
+import SectionTop from "../../Shared/SectionTop/SectionTop";
 
 const GreetingUser = () => {
+  // Section Top props object
+  const sectionTop = {
+    title: "We Are Shipping Solution",
+    subtitle:
+      "Curabitur non eleifend lacus. Proin dictum sem ut purus luctus posuere id vel velit. Fusce non augue sit amet tellus finibus aliquam.",
+  };
   return (
-    <div>
+    <div className="greeting-container">
+      <div>
+        <div className="container">
+          <SectionTop sectionTop={sectionTop} />
+        </div>
+      </div>
+
       <div className="container">
         <div className="row">
           <div className="col-md-4 col-sm-12 single-item">
