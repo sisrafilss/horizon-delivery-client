@@ -1,0 +1,12 @@
+.helpful-links li {
+    color: #ccc;
+}
+.helpful-links li a {
+    color: #ccc;
+}
+
+.helpful-links li:hover a {
+    color: rgb(41, 134, 226);
+}
+
+

@@ -4,10 +4,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home/Home/Home";
 import AuthProvider from "./context/AuthProvider";
 import Header from "./pages/Shared/Header/Header";
+import Footer from "./pages/Shared/Footer/Footer/Footer";
 
 function App() {
   return (
-    <div className="App">
+
       <AuthProvider>
         <Router>
           <Header />
@@ -23,8 +24,9 @@ function App() {
             </Route>
           </Switch>
         </Router>
+        <Footer />
       </AuthProvider>
-    </div>
+
   );
 }
 
