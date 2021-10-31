@@ -16,7 +16,7 @@
 }
 
 .card:hover .card-title {
-    color: #F26529;
+    color: #0dcaf0;
     transition: 0.3s all ease;
 }
 
@@ -31,8 +31,7 @@
 }
 
 .card:hover .read-mroe-btn {
-    background-color: #f26529;
-    color: rgba(255, 255, 255, 0.76);
+    background-color: #0dcaf0;
     text-decoration: underline;
     /* font-size: 0.8rem; */
 }

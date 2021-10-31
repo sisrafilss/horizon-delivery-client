@@ -4,16 +4,15 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import SectionTop from "../../Shared/SectionTop/SectionTop";
 import SingleService from "../../Shared/SingleService/SingleService";
-import './HighlightedService.css'
+import "./HighlightedService.css";
 
 const HightlightedService = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/highlighted-services')
-    .then(res => setServices(res.data));
-    
-    console.log(services);
+    axios
+      .get("http://localhost:5000/highlighted-services")
+      .then((res) => setServices(res.data));
   }, []);
 
   const sectionTop = {
@@ -27,7 +26,7 @@ const HightlightedService = () => {
       <Container>
         <Row xs={1} md={3} className="g-4">
           {services.map((service) => (
-            <SingleService key={service.id} service={service} />
+            <SingleService key={service._id} service={service} />
           ))}
         </Row>
         <div className="mt-5 d-grid">
