@@ -4,7 +4,7 @@
 }
 
 .bg_transparent:after {
-    background-color: rgba(37, 131, 226, 0.616);
+    background-color: rgba(37, 131, 226, 0.787);
     background-size: cover;
     background-repeat: no-repeat;
 }

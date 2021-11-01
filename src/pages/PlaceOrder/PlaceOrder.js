@@ -9,7 +9,7 @@ import "./PlaceOrder.css";
 
 const PlaceOrder = () => {
   const [serviceDetail, setServiceDetail] = useState();
-  const {user} = useAuth();
+  const { user } = useAuth();
 
   const { id } = useParams();
   useEffect(() => {
@@ -26,10 +26,24 @@ const PlaceOrder = () => {
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
+    reset
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+        console.log(data);
+    axios
+      .post(`http://localhost:5000/placeOrder/${id}`, data)
+      .then((res) => {
+          if (res.data?.insertedId) {
+              alert('Order Place Successfully. Please check My Order from the top menu to see all of your orders.')
+            reset();
+          }
+          else {
+            alert(res.data?.caused);
+            reset();
+          }
+      });
+  };
 
   return (
     <div>
