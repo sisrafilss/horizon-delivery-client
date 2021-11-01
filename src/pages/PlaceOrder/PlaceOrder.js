@@ -14,7 +14,7 @@ const PlaceOrder = () => {
   const { id } = useParams();
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/placeOrder/${id}`)
+      .get(`https://immense-journey-09745.herokuapp.com/placeOrder/${id}`)
       .then((res) => setServiceDetail(res.data));
   }, []);
 
@@ -32,7 +32,7 @@ const PlaceOrder = () => {
   const onSubmit = (data) => {
         console.log(data);
     axios
-      .post(`http://localhost:5000/placeOrder/${id}`, data)
+      .post(`https://immense-journey-09745.herokuapp.com/placeOrder/${id}`, data)
       .then((res) => {
           if (res.data?.insertedId) {
               alert('Order Place Successfully. Please check My Order from the top menu to see all of your orders.')

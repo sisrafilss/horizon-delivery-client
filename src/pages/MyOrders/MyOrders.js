@@ -17,14 +17,14 @@ const MyOrders = () => {
 
   useEffect(() => {
     axios
-      .post("http://localhost:5000/my-orders", { email: user.email })
+      .post("https://immense-journey-09745.herokuapp.com/my-orders", { email: user.email })
       .then((res) => setMyOrders(res.data));
   }, [myOrders]);
 
   const handleCancelOrder = (id) => {
     const proceed = window.confirm("Are sure, want to delete?");
     if (proceed) {
-      axios.delete(`http://localhost:5000/my-orders/${id}`).then((res) => {
+      axios.delete(`https://immense-journey-09745.herokuapp.com/my-orders/${id}`).then((res) => {
         if (res.data.deletedCount > 0) {
           alert("Deleted Successfully");
         }
