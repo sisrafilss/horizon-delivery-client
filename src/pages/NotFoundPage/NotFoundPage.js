@@ -1,16 +1,22 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import pageNotFound from "../../images/404.png";
 
 const NotFoundPage = () => {
-    return (
-        <div>
-            <h1>404</h1>
-            <h2>Page Not Found</h2>
-            <Link className="btn btn-info" to="/home">
-                Go To Homepage
+  return (
+    <div className="login-form-wrapper">
+      <div className="container">
+        <div className="w-75 mx-auto">
+          <img src={pageNotFound} className="img-fluid" alt="" />
+          <div className="">
+            <Link className="btn btn-info btn-lg d-block" to="/home">
+              Go to Homepage
             </Link>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default NotFoundPage;

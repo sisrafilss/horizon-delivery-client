@@ -1,0 +1,53 @@
+.login-form-wrapper {
+    background-color: rgb(51, 51, 51);
+}
+
+.login-container {
+    margin-right: 35%;
+    margin-left: 35%;
+    color: #fff;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+
+.btn-submit {
+    background-color: #EA6428;
+    padding: 7px 30px;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-submit:hover {
+    color: #fff !important;
+}
+
+.btn-third-party-login {
+    background-color: #EA6428 !important;
+}
+
+.login-error {
+    color: red;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.login-success {
+    color: green;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+
+@media only screen and (min-width: 521px) and (max-width: 768px) {
+    .login-container {
+        margin-right: 20%;
+        margin-left: 20%;
+    }
+}
+
+@media only screen and (max-width: 520px) {
+    .login-container {
+        margin-right: 10%;
+        margin-left: 10%;
+    }
+}
+
