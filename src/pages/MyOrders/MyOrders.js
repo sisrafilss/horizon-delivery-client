@@ -57,14 +57,14 @@ const MyOrders = () => {
                     {" "}
                     {
                       <img
-                        src={order.img}
+                        src={order?.orderedService?.img}
                         style={{ height: "40px", width: "40px" }}
                         className="img-fluid"
                         alt=""
                       />
                     }{" "}
                   </th>
-                  <td> {order.title} </td>
+                  <td> {order?.orderedService?.title} </td>
                   <td> {order?.status} </td>
                   <td
                     onClick={() => handleCancelOrder(order._id)}
