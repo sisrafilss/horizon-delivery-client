@@ -3,11 +3,13 @@ import React, { useEffect, useState } from "react";
 import { Col, Container, Form, Row, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
+import useAuth from "../../hooks/useAuth";
 import PageTopTitle from "../Shared/PageTopTitle/PageTopTitle";
 import "./PlaceOrder.css";
 
 const PlaceOrder = () => {
   const [serviceDetail, setServiceDetail] = useState();
+  const {user} = useAuth();
 
   const { id } = useParams();
   useEffect(() => {
@@ -57,7 +59,7 @@ const PlaceOrder = () => {
                 type="text"
                 className="form-control"
                 placeholder="Full Name"
-                defaultValue="Customar Name"
+                defaultValue={user?.displayName}
                 {...register("name", { required: true })}
               />
               {errors.name && (
@@ -71,7 +73,7 @@ const PlaceOrder = () => {
                 type="email"
                 className="form-control"
                 placeholder="Email"
-                defaultValue="Customer Email address"
+                defaultValue={user.email}
                 {...register("email", { required: true })}
               />
               {errors.email && (
