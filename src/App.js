@@ -8,6 +8,9 @@ import Footer from "./pages/Shared/Footer/Footer/Footer";
 import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
 import PrivatRoute from "./PrivatRoute/PrivatRoute";
 import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import MyOrders from "./pages/MyOrders/MyOrders";
+import ManageAllOrders from "./pages/ManageAllOrders/ManageAllOrders";
+import AddANewService from "./pages/AddANewService/AddANewService";
 
 function App() {
   return (
@@ -26,6 +29,15 @@ function App() {
           </Route>
           <PrivatRoute path="/placeOrder/:id">
             <PlaceOrder />
+          </PrivatRoute>
+          <PrivatRoute path="/my-orders">
+            <MyOrders />
+          </PrivatRoute>
+          <PrivatRoute path="/manage-all-orders">
+            <ManageAllOrders />
+          </PrivatRoute>
+          <PrivatRoute path="/add-a-new-service">
+            <AddANewService />
           </PrivatRoute>
           <Route path="*">
             <NotFoundPage />

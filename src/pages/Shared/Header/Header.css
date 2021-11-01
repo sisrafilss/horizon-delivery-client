@@ -4,4 +4,9 @@
 
 .nav-item {
     color: rgba(245, 245, 245, 0.876) !important;
+    margin-right: 10px;
+    font-weight: 600;
+}
+.nav-item:hover {
+    color: rgb(245, 245, 245) !important;
 }

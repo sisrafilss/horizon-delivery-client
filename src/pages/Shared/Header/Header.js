@@ -17,8 +17,8 @@ const Header = () => {
   return (
     <div>
       <Navbar className="navbar-bg" expand="lg">
-        <Container>
-          <Navbar.Brand className="nav-item" href="#home">
+        <Container fluid>
+          <Navbar.Brand as={Link} className="nav-item" to="/home">
             Horizon
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -27,6 +27,23 @@ const Header = () => {
               <Nav.Link as={Link} className="nav-item" to="/home">
                 Home
               </Nav.Link>
+
+              {user.email && (
+                <Nav.Link as={Link} className="nav-item" to="/my-orders">
+                  My Orders
+                </Nav.Link>
+              )}
+              {user.email && (
+                <Nav.Link as={Link} className="nav-item" to="/manage-all-orders">
+                  Manage All Orders
+                </Nav.Link>
+              )}
+              {user.email && (
+                <Nav.Link as={Link} className="nav-item" to="/add-a-new-service">
+                  Add a New Service
+                </Nav.Link>
+              )}
+
               {user.email ? (
                 <button
                   onClick={logOut}
