@@ -11,7 +11,7 @@ const HightlightedService = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/highlighted-services")
+      .get("https://immense-journey-09745.herokuapp.com/highlighted-services")
       .then((res) => setServices(res.data));
   }, []);
 

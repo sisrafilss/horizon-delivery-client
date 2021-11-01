@@ -1,9 +1,19 @@
 import React from "react";
-import { Container, Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
-import { Link, NavLink } from "react-router-dom";
+import {
+  Container,
+  Nav,
+  Navbar,
+  Form,
+  FormControl,
+  Button,
+} from "react-bootstrap";
+import { Link } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 import "./Header.css";
 
 const Header = () => {
+  const { user, logOut } = useAuth();
+
   return (
     <div>
       <Navbar className="navbar-bg" expand="lg">
@@ -17,10 +27,31 @@ const Header = () => {
               <Nav.Link as={Link} className="nav-item" to="/home">
                 Home
               </Nav.Link>
-              <Nav.Link as={Link} className="nav-item" to="/login">
-                Login
-              </Nav.Link>
+              {user.email ? (
+                <button
+                  onClick={logOut}
+                  className="rounded-3"
+                  style={{ padding: "0px 10px" }}
+                >
+                  Logout
+                </button>
+              ) : (
+                <Nav.Link as={Link} className="nav-item" to="/login">
+                  Login
+                </Nav.Link>
+              )}
             </Nav>
+
+            {user.email && (
+              <div className="mx-3">
+                <img
+                  style={{ width: "40px", height: "40px", borderRadius: "50%" }}
+                  src={user?.photoURL}
+                  alt=""
+                />
+                <span className="text-light"> {user?.displayName} </span>
+              </div>
+            )}
 
             <Form className="d-flex">
               <FormControl

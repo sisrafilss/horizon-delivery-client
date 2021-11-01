@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import SectionTop from "../../Shared/SectionTop/SectionTop";
@@ -9,7 +9,7 @@ const HighlightedBlogs = () => {
   const [blogs, setBlogs] = useState([]);
 
   axios
-    .get("http://localhost:5000/latest-blogs")
+    .get("https://immense-journey-09745.herokuapp.com/latest-blogs")
     .then((res) => setBlogs(res.data));
 
   // Section Top props object
