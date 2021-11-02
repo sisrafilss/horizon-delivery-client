@@ -13,6 +13,7 @@ const GreetingUser = () => {
       "Curabitur non eleifend lacus. Proin dictum sem ut purus luctus posuere id vel velit. Fusce non augue sit amet tellus finibus aliquam.",
   };
   return (
+    // Greeting Users Section
     <div className="greeting-container">
       <div>
         <div className="container">

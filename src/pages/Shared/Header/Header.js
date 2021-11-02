@@ -10,16 +10,25 @@ import {
 import { Link } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import "./Header.css";
+import logo from '../../../images/logo.png'
 
 const Header = () => {
+  // Import from useAuth --> useFirebase custom hook
   const { user, logOut } = useAuth();
 
   return (
-    <div>
-      <Navbar className="navbar-bg" expand="lg">
+    <>
+      <Navbar  sticky="top" className="navbar-bg" expand="lg">
         <Container fluid>
-          <Navbar.Brand as={Link} className="nav-item" to="/home">
-            Horizon
+          <Navbar.Brand as={Link} to="/home">
+            <img
+              alt=""
+              src={logo}
+              width="40"
+              height="40"
+              className="d-inline-block align-top"
+            />{" "}
+            <span className="logo">Horizon</span>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -34,12 +43,20 @@ const Header = () => {
                 </Nav.Link>
               )}
               {user.email && (
-                <Nav.Link as={Link} className="nav-item" to="/manage-all-orders">
+                <Nav.Link
+                  as={Link}
+                  className="nav-item"
+                  to="/manage-all-orders"
+                >
                   Manage All Orders
                 </Nav.Link>
               )}
               {user.email && (
-                <Nav.Link as={Link} className="nav-item" to="/add-a-new-service">
+                <Nav.Link
+                  as={Link}
+                  className="nav-item"
+                  to="/add-a-new-service"
+                >
                   Add a New Service
                 </Nav.Link>
               )}
@@ -82,7 +99,7 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </div>
+    </>
   );
 };
 

@@ -1,16 +1,20 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import SectionTop from "../../Shared/SectionTop/SectionTop";
 import SingleBlog from "../../Shared/SingleBlog/SingleBlog";
 
 const HighlightedBlogs = () => {
+  // Saved Latest Blogs
   const [blogs, setBlogs] = useState([]);
 
-  axios
-    .get("https://immense-journey-09745.herokuapp.com/latest-blogs")
-    .then((res) => setBlogs(res.data));
+  // Loading latest blogs from server
+  useEffect(() => {
+    axios
+      .get("https://immense-journey-09745.herokuapp.com/latest-blogs")
+      .then((res) => setBlogs(res.data));
+  }, []);
 
   // Section Top props object
   const sectionTop = {

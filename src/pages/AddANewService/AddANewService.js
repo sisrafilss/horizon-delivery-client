@@ -9,29 +9,32 @@ const AddANewService = () => {
     title: "Add a New Service",
     subtitle: "Admin can Add a new Service",
   };
-
+  // React Hook Form
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm();
   const onSubmit = (data) => {
-        console.log(data);
+    console.log(data);
     axios
-      .post('http://localhost:5000/add-a-new-service', data)
+      .post(
+        "https://immense-journey-09745.herokuapp.com/add-a-new-service",
+        data
+      )
       .then((res) => {
-          if (res.data?.insertedId) {
-              alert('Service added Successfully. Take a look at services page to check.')
-            reset();
-          }
-          else {
-            alert(res.data?.caused);
-            reset();
-          }
+        if (res.data?.insertedId) {
+          alert(
+            "Service added Successfully. Take a look at services page to check."
+          );
+          reset();
+        } else {
+          alert(res.data?.caused);
+          reset();
+        }
       });
   };
-
 
   return (
     <div>
@@ -84,12 +87,7 @@ const AddANewService = () => {
               )}
             </div>
 
-            
-            <input
-              type="submit"
-              className="btn btn-info fw-bold"
-              value="Add"
-            />
+            <input type="submit" className="btn btn-info fw-bold" value="Add" />
           </form>
         </div>
       </div>

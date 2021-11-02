@@ -1,6 +1,7 @@
 import React from 'react';
 import './PageTopTitle.css'
 
+// This component is used in most of the page top to increase beauty of the page.
 const PageTopTitle = ({ pageTopTitle }) => {
 
     const { title, subtitle } = pageTopTitle;

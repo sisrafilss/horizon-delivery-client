@@ -17,21 +17,27 @@ const MyOrders = () => {
 
   const { user } = useAuth();
 
+  // Sending the email of currently logged in user and get his/her orders accordingly
   useEffect(() => {
     axios
-      .post("https://immense-journey-09745.herokuapp.com/my-orders", { email: user.email })
+      .post("https://immense-journey-09745.herokuapp.com/my-orders", {
+        email: user.email,
+      })
       .then((res) => setMyOrders(res.data));
   }, [ismyOrdersChange]);
 
+  // Handle Cancel Order
   const handleCancelOrder = (id) => {
     const proceed = window.confirm("Are sure, want to delete?");
     if (proceed) {
-      axios.delete(`https://immense-journey-09745.herokuapp.com/my-orders/${id}`).then((res) => {
-        if (res.data.deletedCount > 0) {
-          alert("Deleted Successfully");
-          setIsMyOrdersChange(true);
-        }
-      });
+      axios
+        .delete(`https://immense-journey-09745.herokuapp.com/my-orders/${id}`)
+        .then((res) => {
+          if (res.data.deletedCount > 0) {
+            alert("Deleted Successfully");
+            setIsMyOrdersChange(true);
+          }
+        });
     }
   };
 
@@ -42,9 +48,9 @@ const MyOrders = () => {
       </div>
 
       <div className="orders-container">
-          <h1 className={myOrders.length && 'hidden'}>You have no Order Yet!</h1>
-        <div className={!myOrders.length && 'hidden' }>
-          <table class="table table-hover">
+        <h1 className={myOrders.length && "hidden"}>You have no Order Yet!</h1>
+        <div className={!myOrders.length && "hidden"}>
+          <table className="table table-hover">
             <thead>
               <tr>
                 <th scope="col"></th>

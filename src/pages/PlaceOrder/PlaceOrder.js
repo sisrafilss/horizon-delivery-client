@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Col, Container, Form, Row, Button } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router";
 import useAuth from "../../hooks/useAuth";
@@ -11,37 +10,45 @@ const PlaceOrder = () => {
   const [serviceDetail, setServiceDetail] = useState();
   const { user } = useAuth();
 
+  // Getting order id
   const { id } = useParams();
+  // Get currently pressed order detail
   useEffect(() => {
     axios
       .get(`https://immense-journey-09745.herokuapp.com/placeOrder/${id}`)
       .then((res) => setServiceDetail(res.data));
   }, []);
 
+  // Page top title props object
   const pageTopTitle = {
     title: "Order Detail",
     subtitle: "Please take a look and Place an order by filling up the form.",
   };
 
+  // React hook form
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm();
   const onSubmit = (data) => {
-        console.log(data);
+    console.log(data);
     axios
-      .post(`https://immense-journey-09745.herokuapp.com/placeOrder/${id}`, data)
+      .post(
+        `https://immense-journey-09745.herokuapp.com/placeOrder/${id}`,
+        data
+      )
       .then((res) => {
-          if (res.data?.insertedId) {
-              alert('Order Place Successfully. Please check My Order from the top menu to see all of your orders.')
-            reset();
-          }
-          else {
-            alert(res.data?.caused);
-            reset();
-          }
+        if (res.data?.insertedId) {
+          alert(
+            "Order Place Successfully. Please check My Order from the top menu to see all of your orders."
+          );
+          reset();
+        } else {
+          alert(res.data?.caused);
+          reset();
+        }
       });
   };
 
@@ -141,7 +148,6 @@ const PlaceOrder = () => {
           </form>
         </div>
       </div>
-      
     </div>
   );
 };

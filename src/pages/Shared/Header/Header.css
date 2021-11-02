@@ -10,3 +10,9 @@
 .nav-item:hover {
     color: rgb(245, 245, 245) !important;
 }
+
+.logo {
+    color: #31d2f2 !important;
+    font-weight: 600;
+    font-size: 150%
+}

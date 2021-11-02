@@ -6,9 +6,10 @@ const ManageAllOrders = () => {
   const [orders, setOrders] = useState([]);
   const [isOrdersChange, setIsOrdersChange] = useState(false);
 
+  // Loading all orders from server
   useEffect(() => {
     axios
-      .get("http://localhost:5000/manage-all-orders")
+      .get("https://immense-journey-09745.herokuapp.com/manage-all-orders")
       .then((res) => setOrders(res.data));
   }, [isOrdersChange]);
 
@@ -17,7 +18,9 @@ const ManageAllOrders = () => {
     const proceed = window.confirm("Are sure, want to delete?");
     if (proceed) {
       axios
-        .delete(`http://localhost:5000/manage-all-orders/${id}`)
+        .delete(
+          `https://immense-journey-09745.herokuapp.com/manage-all-orders/${id}`
+        )
         .then((res) => {
           if (res.data.deletedCount > 0) {
             alert("Deleted Successfully");
@@ -30,14 +33,18 @@ const ManageAllOrders = () => {
   // Page top Title props object
   const pageTopTitle = {
     title: `Manage All Orders: ${orders.length}`,
-    subtitle: "You can delete anyone's else order from this page as an admin",
+    subtitle:
+      "You can delete anyone's else order from this page as an admin. Please access this page from your computer to get better experience.",
   };
 
   const handleApproval = (id) => {
     axios
-      .patch(`http://localhost:5000/manage-all-orders/${id}`, {
-        status: "Approved",
-      })
+      .patch(
+        `https://immense-journey-09745.herokuapp.com/manage-all-orders/${id}`,
+        {
+          status: "Approved",
+        }
+      )
       .then((res) => {
         if (res.data.modifiedCount > 0) {
           setIsOrdersChange(true);
@@ -53,7 +60,7 @@ const ManageAllOrders = () => {
       <div className="orders-container">
         <h1 className={orders.length && "hidden"}>There is no Order Yet!</h1>
         <div className={!orders.length && "hidden"}>
-          <table class="table table-hover">
+          <table className="table table-hover">
             <thead>
               <tr>
                 <th scope="col"></th>

@@ -7,21 +7,24 @@ import SingleService from "../../Shared/SingleService/SingleService";
 import "./HighlightedService.css";
 
 const HightlightedService = () => {
+  // Store Seriveces
   const [services, setServices] = useState([]);
 
+  // Loading services from server
   useEffect(() => {
     axios
       .get("https://immense-journey-09745.herokuapp.com/highlighted-services")
       .then((res) => setServices(res.data));
   }, []);
 
+  // Section top title props object
   const sectionTop = {
     title: "Services We offer",
     subtitle: "Our medical specialists care about you & your family’s health",
   };
 
   return (
-    <div className="my-5">
+    <div style={{marginBottom: '80px'}} className="my-5">
       <SectionTop sectionTop={sectionTop} />
       <Container>
         <Row xs={1} md={3} className="g-4">
@@ -29,11 +32,11 @@ const HightlightedService = () => {
             <SingleService key={service._id} service={service} />
           ))}
         </Row>
-        <div className="mt-5 d-grid">
+        {/* <div className="mt-5 d-grid">
           <Link className="btn btn-load-more" to="/services">
             All Services
           </Link>
-        </div>
+        </div> */}
       </Container>
     </div>
   );

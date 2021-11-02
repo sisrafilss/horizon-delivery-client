@@ -1,5 +1,5 @@
 import React from "react";
-import './AboutCompanyInShort.css';
+import "./AboutCompanyInShort.css";
 
 const AboutCompanyInShort = () => {
   return (
@@ -7,9 +7,10 @@ const AboutCompanyInShort = () => {
       <div>
         <h4 className="my-4">About Horizon Delivery</h4>
         <p className="pe-4">
-          Sed ipsum posuere nunc libero pellentesque vitae ultrices posuere.
-          Praesent justo dui laoreet dignissim lectus etiam ipsum habitant
-          tristique
+          Are you looking for a secure and trusted delivery service provider for
+          Your E-Commerce Business? Horizon Delivery Network provides you with a
+          Global shipping solution. Choose your require service from our various
+          services list.
         </p>
         <div className="pe-4">
           <p className="my-0 pb-1">

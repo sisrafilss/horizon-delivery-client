@@ -5,11 +5,13 @@ import PageTopTitle from "../../Shared/PageTopTitle/PageTopTitle";
 import "./Login.css";
 
 const Login = () => {
+  // Destructure necessary funtion from useAuth custom hook
   const { signInUsingGoogle, setError, setUser, setIsLoading } = useAuth();
   const location = useLocation();
   const history = useHistory();
   const redirect_uri = location?.state?.from || "/home";
 
+  // handle sing in using google button
   const handleGoogleSignIn = () => {
     signInUsingGoogle()
       .then((result) => {
@@ -25,6 +27,7 @@ const Login = () => {
       });
   };
 
+  // page top title props object
   const pageTopTitle = {
     title: "Please Login",
     subtitle: "Login to access all of the features",

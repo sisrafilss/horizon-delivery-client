@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
+    // React Bootstrap Simple Carousel
     <Carousel>
       <Carousel.Item>
         <img className="d-block w-100" src={banner1} alt="First slide" />
@@ -17,10 +18,10 @@ const Banner = () => {
           </h1>
           <br />
           <p className="slide-title-2 p-2 my-0 d-inline-block rounded">
-            Lorem ipsum dolor sit amet consectetur.
+            Ensure fast and secure delivery Service
           </p>
           <br />
-          <Link to="/services" className="btn btn-info mt-0">
+          <Link to="#" className="btn btn-info mt-0">
             View Services &nbsp; <i className="fas fa-plus"></i>
           </Link>
         </Carousel.Caption>
@@ -30,14 +31,14 @@ const Banner = () => {
 
         <Carousel.Caption className="slide-caption">
           <h1 className="slide-title p-3 d-inline-block fw-bold display-2 rounded mb-0">
-            Global Shipping through Asia-Pas, Any Beyond
+            In Person Home Delivery Service
           </h1>
           <br />
           <p className="slide-title-2 p-2 my-0 d-inline-block rounded">
-            Lorem ipsum dolor sit amet consectetur.
+            Product will be handed over to the customer’s hand.
           </p>
           <br />
-          <Link to="/services" className="btn btn-info mt-0">
+          <Link to="#" className="btn btn-info mt-0">
             View Services &nbsp; <i className="fas fa-plus"></i>
           </Link>
         </Carousel.Caption>
@@ -47,14 +48,14 @@ const Banner = () => {
 
         <Carousel.Caption className="slide-caption">
           <h1 className="slide-title p-3 d-inline-block fw-bold display-2 rounded mb-0">
-            Global Shipping through Asia-Pas, Any Beyond
+            Ensure secure and fast Supply
           </h1>
           <br />
           <p className="slide-title-2 p-2 my-0 d-inline-block rounded">
-            Lorem ipsum dolor sit amet consectetur.
+            Security and Customer satisfaction are our hightest priority.
           </p>
           <br />
-          <Link to="/services" className="btn btn-info mt-0">
+          <Link to="#" className="btn btn-info mt-0">
             View Services &nbsp; <i className="fas fa-plus"></i>
           </Link>
         </Carousel.Caption>

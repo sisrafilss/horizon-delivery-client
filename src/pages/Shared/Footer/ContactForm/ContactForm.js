@@ -1,5 +1,6 @@
 import React from "react";
 
+// This form is not dynamic. It added for style purpose now. It will be dynamic later.
 const ContactForm = () => {
   return (
     <div>
