@@ -6,7 +6,9 @@ import "./MyOrders.css";
 
 const MyOrders = () => {
   const [myOrders, setMyOrders] = useState([]);
+  const [ismyOrdersChange, setIsMyOrdersChange] = useState(false);
 
+  // Page top Title props object
   const pageTopTitle = {
     title: "My Orders",
     subtitle:
@@ -19,7 +21,7 @@ const MyOrders = () => {
     axios
       .post("https://immense-journey-09745.herokuapp.com/my-orders", { email: user.email })
       .then((res) => setMyOrders(res.data));
-  }, [myOrders]);
+  }, [ismyOrdersChange]);
 
   const handleCancelOrder = (id) => {
     const proceed = window.confirm("Are sure, want to delete?");
@@ -27,6 +29,7 @@ const MyOrders = () => {
       axios.delete(`https://immense-journey-09745.herokuapp.com/my-orders/${id}`).then((res) => {
         if (res.data.deletedCount > 0) {
           alert("Deleted Successfully");
+          setIsMyOrdersChange(true);
         }
       });
     }
