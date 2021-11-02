@@ -11,40 +11,48 @@ import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
 import MyOrders from "./pages/MyOrders/MyOrders";
 import ManageAllOrders from "./pages/ManageAllOrders/ManageAllOrders";
 import AddANewService from "./pages/AddANewService/AddANewService";
+import LoadingSpinner from "./pages/Shared/LoadingSpinner/LoadingSpinner";
+import useData from "./hooks/useData";
 
 function App() {
+  const { isLoading } = useData();
+
   return (
     <AuthProvider>
-      <Router>
-        <Header />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/home">
-            <Home />
-          </Route>
-          <Route path="/login">
-            <Login />
-          </Route>
-          <PrivatRoute path="/placeOrder/:id">
-            <PlaceOrder />
-          </PrivatRoute>
-          <PrivatRoute path="/my-orders">
-            <MyOrders />
-          </PrivatRoute>
-          <PrivatRoute path="/manage-all-orders">
-            <ManageAllOrders />
-          </PrivatRoute>
-          <PrivatRoute path="/add-a-new-service">
-            <AddANewService />
-          </PrivatRoute>
-          <Route path="*">
-            <NotFoundPage />
-          </Route>
-        </Switch>
-      </Router>
-      <Footer />
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <Router>
+          <Header />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <PrivatRoute path="/placeOrder/:id">
+              <PlaceOrder />
+            </PrivatRoute>
+            <PrivatRoute path="/my-orders">
+              <MyOrders />
+            </PrivatRoute>
+            <PrivatRoute path="/manage-all-orders">
+              <ManageAllOrders />
+            </PrivatRoute>
+            <PrivatRoute path="/add-a-new-service">
+              <AddANewService />
+            </PrivatRoute>
+            <Route path="*">
+              <NotFoundPage />
+            </Route>
+          </Switch>
+          <Footer />
+        </Router>
+      )}
     </AuthProvider>
   );
 }

@@ -5,17 +5,13 @@ import axios from "axios";
 import SectionTop from "../../Shared/SectionTop/SectionTop";
 import SingleService from "../../Shared/SingleService/SingleService";
 import "./HighlightedService.css";
+import useData from "../../../hooks/useData";
 
 const HightlightedService = () => {
-  // Store Seriveces
-  const [services, setServices] = useState([]);
 
-  // Loading services from server
-  useEffect(() => {
-    axios
-      .get("https://immense-journey-09745.herokuapp.com/highlighted-services")
-      .then((res) => setServices(res.data));
-  }, []);
+  const {services} = useData();
+
+  
 
   // Section top title props object
   const sectionTop = {
