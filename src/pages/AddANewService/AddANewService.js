@@ -17,7 +17,6 @@ const AddANewService = () => {
     reset,
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     axios
       .post(
         "https://immense-journey-09745.herokuapp.com/add-a-new-service",

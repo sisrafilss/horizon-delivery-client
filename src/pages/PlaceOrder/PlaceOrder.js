@@ -33,7 +33,6 @@ const PlaceOrder = () => {
     reset,
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     axios
       .post(
         `https://immense-journey-09745.herokuapp.com/placeOrder/${id}`,
