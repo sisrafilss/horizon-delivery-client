@@ -27,11 +27,22 @@ const ManageAllOrders = () => {
     }
   };
 
-
   // Page top Title props object
   const pageTopTitle = {
     title: `Manage All Orders: ${orders.length}`,
     subtitle: "You can delete anyone's else order from this page as an admin",
+  };
+
+  const handleApproval = (id) => {
+    axios
+      .patch(`http://localhost:5000/manage-all-orders/${id}`, {
+        status: "Approved",
+      })
+      .then((res) => {
+        if (res.data.modifiedCount > 0) {
+          setIsOrdersChange(true);
+        }
+      });
   };
 
   return (
@@ -49,6 +60,7 @@ const ManageAllOrders = () => {
                 <th scope="col">Service Name</th>
                 <th scope="col">Ordered By</th>
                 <th scope="col">Status</th>
+                <th scope="col"></th>
                 <th scope="col">Cancel</th>
               </tr>
             </thead>
@@ -69,6 +81,13 @@ const ManageAllOrders = () => {
                   <td> {order?.orderedService?.title} </td>
                   <td> {order?.email} </td>
                   <td> {order?.status} </td>
+                  <td>
+                    {order.status === "Pending" && (
+                      <button onClick={() => handleApproval(order._id)}>
+                        Approve
+                      </button>
+                    )}
+                  </td>
                   <td
                     onClick={() => handleCancelOrder(order._id)}
                     style={{ cursor: "pointer" }}
