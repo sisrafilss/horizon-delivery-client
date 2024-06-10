@@ -19,7 +19,7 @@ const AddANewService = () => {
   const onSubmit = (data) => {
     axios
       .post(
-        "https://immense-journey-09745.herokuapp.com/add-a-new-service",
+        "https://horizon-deliver-server.onrender.com/add-a-new-service",
         data
       )
       .then((res) => {

@@ -20,7 +20,7 @@ const MyOrders = () => {
   // Sending the email of currently logged in user and get his/her orders accordingly
   useEffect(() => {
     axios
-      .post("https://immense-journey-09745.herokuapp.com/my-orders", {
+      .post("https://horizon-deliver-server.onrender.com/my-orders", {
         email: user.email,
       })
       .then((res) => setMyOrders(res.data));
@@ -31,7 +31,7 @@ const MyOrders = () => {
     const proceed = window.confirm("Are sure, want to delete?");
     if (proceed) {
       axios
-        .delete(`https://immense-journey-09745.herokuapp.com/my-orders/${id}`)
+        .delete(`https://horizon-deliver-server.onrender.com/my-orders/${id}`)
         .then((res) => {
           if (res.data.deletedCount > 0) {
             alert("Deleted Successfully");

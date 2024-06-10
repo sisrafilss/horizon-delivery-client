@@ -15,7 +15,7 @@ const PlaceOrder = () => {
   // Get currently pressed order detail
   useEffect(() => {
     axios
-      .get(`https://immense-journey-09745.herokuapp.com/placeOrder/${id}`)
+      .get(`https://horizon-deliver-server.onrender.com/placeOrder/${id}`)
       .then((res) => setServiceDetail(res.data));
   }, []);
 
@@ -35,7 +35,7 @@ const PlaceOrder = () => {
   const onSubmit = (data) => {
     axios
       .post(
-        `https://immense-journey-09745.herokuapp.com/placeOrder/${id}`,
+        `https://horizon-deliver-server.onrender.com/placeOrder/${id}`,
         data
       )
       .then((res) => {

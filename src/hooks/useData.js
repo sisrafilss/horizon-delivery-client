@@ -13,7 +13,7 @@ const useData = () => {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get("https://immense-journey-09745.herokuapp.com/highlighted-services")
+      .get("https://horizon-deliver-server.onrender.com/highlighted-services")
       .then((res) => setServices(res.data))
       .finally(() => {
         setIsLoading(false);
@@ -24,7 +24,7 @@ const useData = () => {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get("https://immense-journey-09745.herokuapp.com/latest-blogs")
+      .get("https://horizon-deliver-server.onrender.com/latest-blogs")
       .then((res) => setBlogs(res.data))
       .finally(() => setIsLoading(false));
   }, []);

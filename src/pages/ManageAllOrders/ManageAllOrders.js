@@ -9,7 +9,7 @@ const ManageAllOrders = () => {
   // Loading all orders from server
   useEffect(() => {
     axios
-      .get("https://immense-journey-09745.herokuapp.com/manage-all-orders")
+      .get("https://horizon-deliver-server.onrender.com/manage-all-orders")
       .then((res) => setOrders(res.data));
   }, [isOrdersChange]);
 
@@ -19,7 +19,7 @@ const ManageAllOrders = () => {
     if (proceed) {
       axios
         .delete(
-          `https://immense-journey-09745.herokuapp.com/manage-all-orders/${id}`
+          `https://horizon-deliver-server.onrender.com/manage-all-orders/${id}`
         )
         .then((res) => {
           if (res.data.deletedCount > 0) {
@@ -40,7 +40,7 @@ const ManageAllOrders = () => {
   const handleApproval = (id) => {
     axios
       .patch(
-        `https://immense-journey-09745.herokuapp.com/manage-all-orders/${id}`,
+        `https://horizon-deliver-server.onrender.com/manage-all-orders/${id}`,
         {
           status: "Approved",
         }
